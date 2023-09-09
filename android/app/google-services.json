@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853449197712",
+    "project_id": "apna-kiryana",
+    "storage_bucket": "apna-kiryana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853449197712:android:2bc0d78229f5ff11b3f015",
+        "android_client_info": {
+          "package_name": "com.example.apna_kiryana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTvLEE-CMjM_VfZLOIAlE9fYux8weSmCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
