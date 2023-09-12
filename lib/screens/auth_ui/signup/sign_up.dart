@@ -1,5 +1,8 @@
+import 'package:apna_kiryana/constants/constants.dart';
 import 'package:apna_kiryana/constants/routes.dart';
+import 'package:apna_kiryana/firebase_helper/firbase_auth_helper.dart';
 import 'package:apna_kiryana/screens/auth_ui/login/login.dart';
+import 'package:apna_kiryana/screens/home/home.dart';
 import 'package:apna_kiryana/widgets/PrimaryButton/primary_button.dart';
 import 'package:apna_kiryana/widgets/TopTitle/top_title.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +16,11 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
  bool isShowPassword = true;
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,7 @@ class _SignUpState extends State<SignUp> {
                 height: 45,
               ),
               TextFormField(
+                controller: nameController,
                 decoration: const InputDecoration(
                   hintText: "Enter Name",
                   prefixIcon: Icon(
@@ -42,6 +51,7 @@ class _SignUpState extends State<SignUp> {
                 height: 12,
               ),
                TextFormField(
+                controller: phoneController,
                 decoration: const InputDecoration(
                   hintText: "Enter Contact Number",
                   prefixIcon: Icon(
@@ -54,7 +64,9 @@ class _SignUpState extends State<SignUp> {
                 height: 12,
               ),
                TextFormField(
+                controller: emailController,
                 decoration: const InputDecoration(
+                  
                   hintText: "Enter E-Mail",
                   prefixIcon: Icon(
                     Icons.mail_outline_outlined,
@@ -66,6 +78,7 @@ class _SignUpState extends State<SignUp> {
                 height: 12,
               ),
               TextFormField(
+                controller: passwordController,
                 obscureText: isShowPassword,
                 decoration: InputDecoration(
                   hintText: "Enter Password",
@@ -91,7 +104,16 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(
                 height: 36,
               ),
-              PrimaryButton(onPressed: () {}, title: "Signup"),
+              PrimaryButton(onPressed: () async {
+ bool isValidated =   signupValidation(nameController.text,emailController.text,phoneController.text,passwordController.text);
+              if(isValidated) {
+                bool isLogined = await FirebaseAuthHelper.instance.signup(emailController.text, passwordController.text, context);
+       if(isLogined) {
+      // ignore: use_build_context_synchronously
+      Routes.instance.pushAndRemoveUntil(widget: const Home(), context: context);
+              }
+              }
+              }, title: "Create Account"),
               const SizedBox(
                 height: 24,
               ),

@@ -94,3 +94,31 @@ bool loginValidation(String email, String password) {
 
   return true;
 }
+
+
+bool signupValidation(String email, String password,String name, String phone) {
+
+   if(password.isEmpty && email.isEmpty && name.isEmpty && phone.isEmpty){
+    showMessage("Both fields are Empty");
+    return false;
+  }
+  else if(name.isEmpty){
+    showMessage("Name is Empty");
+    return false;
+  }
+ else if(email.isEmpty){
+    showMessage("Email is Empty");
+    return false;
+  }
+  
+  else if(phone.isEmpty){
+    showMessage("Phone is Empty");
+    return false;
+  }
+  if(password.isEmpty){
+    showMessage("Password is Empty");
+    return false;
+  }
+
+  return true;
+}
