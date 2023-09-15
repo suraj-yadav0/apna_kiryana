@@ -1,30 +1,47 @@
 
 import 'dart:convert';
 
-TopLevel topLevelFromJson(String str) => TopLevel.fromJson(json.decode(str));
+ProductModel productModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
 
-String topLevelToJson(TopLevel data) => json.encode(data.toJson());
+String productModelToJson(ProductModel data) => json.encode(data.toJson());
 
-class TopLevel {
+class ProductModel {
+   String image;
     String id;
     String name;
-    String email;
+    double price;
+    String description;
+     String status;
+   //  bool isFavourite;
+   
 
-    TopLevel({
+    ProductModel({
+      required this.image,
         required this.id,
         required this.name,
-        required this.email,
+        required this.price,
+        required this.description,
+        required this.status,
+     //   required this.isFavourite,
     });
 
-    factory TopLevel.fromJson(Map<String, dynamic> json) => TopLevel(
+    factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+      image: json["image"],
         id: json["id"],
         name: json["name"],
-        email: json["email"],
+        price: double.parse(json["price"].toString()) ,
+        description: json["description"],
+        status: json["status"],
+     //   isFavourite: false,
     );
 
     Map<String, dynamic> toJson() => {
+      "image" : image,
         "id": id,
         "name": name,
-        "email": email,
+        "price": price,
+        "description" : description,
+        "status" : status,
+      //  "isFavourite" : isFavourite,
     };
 }
