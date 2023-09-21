@@ -12,7 +12,7 @@ class ProductModel {
     double price;
     String description;
      String status;
-   //  bool isFavourite;
+     bool isFavourite;
    
 
     ProductModel({
@@ -22,7 +22,7 @@ class ProductModel {
         required this.price,
         required this.description,
         required this.status,
-     //   required this.isFavourite,
+        required this.isFavourite,
     });
 
     factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
@@ -32,7 +32,7 @@ class ProductModel {
         price: double.parse(json["price"].toString()) ,
         description: json["description"],
         status: json["status"],
-     //   isFavourite: false,
+       isFavourite: false,
     );
 
     Map<String, dynamic> toJson() => {
@@ -42,6 +42,6 @@ class ProductModel {
         "price": price,
         "description" : description,
         "status" : status,
-      //  "isFavourite" : isFavourite,
+       "isFavourite" : isFavourite,
     };
 }

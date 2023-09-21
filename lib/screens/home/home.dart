@@ -1,6 +1,8 @@
+import 'package:apna_kiryana/constants/routes.dart';
 import 'package:apna_kiryana/firebase_helper/firebase_firestore_heper.dart';
 import 'package:apna_kiryana/models/category_model.dart';
 import 'package:apna_kiryana/models/product_model.dart';
+import 'package:apna_kiryana/screens/product_details/product_details.dart';
 
 import 'package:apna_kiryana/widgets/TopTitle/top_title.dart';
 
@@ -121,6 +123,8 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.all(12.0),
               child: Expanded(
                 child: SingleChildScrollView(
+                  physics: null,
+                  
                   child: GridView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -158,7 +162,9 @@ class _HomeState extends State<Home> {
                               ),
                               // Text("About: ${singleProduct.description}",style: const TextStyle(fontSize: 5)),
                               OutlinedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Routes.instance.push(widget: ProductDetails(singleProduct: singleProduct), context: context);
+                                },
                                 child: const Text(
                                   "Buy Now",
                                 ),
@@ -167,7 +173,7 @@ class _HomeState extends State<Home> {
                           ),
                         );
                       }),
-                ),
+                 ),
               ),
             ),
             const SizedBox(

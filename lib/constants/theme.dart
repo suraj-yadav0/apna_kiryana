@@ -4,11 +4,12 @@ ThemeData themeData = ThemeData(
   scaffoldBackgroundColor: Colors.white,
   primaryColor: Colors.red,
   outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-          foregroundColor: Colors.red,
-          textStyle: const TextStyle(color: Colors.red),
-          side: const BorderSide(color: Colors.red),),
-          ),
+    style: OutlinedButton.styleFrom(
+      foregroundColor: Colors.red,
+      textStyle: const TextStyle(color: Colors.red),
+      side: const BorderSide(color: Colors.red),
+    ),
+  ),
   inputDecorationTheme: InputDecorationTheme(
     border: outlineInputBorder,
     errorBorder: outlineInputBorder,
@@ -21,6 +22,11 @@ ThemeData themeData = ThemeData(
       disabledBackgroundColor: Colors.grey,
       textStyle: const TextStyle(fontSize: 18),
     ),
+  ),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.white,
+    elevation: 0.0,
+    iconTheme: IconThemeData(color: Colors.black),
   ),
 );
 
