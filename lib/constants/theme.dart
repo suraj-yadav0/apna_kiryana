@@ -15,6 +15,10 @@ ThemeData themeData = ThemeData(
     errorBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     disabledBorder: outlineInputBorder,
+    prefixIconColor: Colors.grey,
+    suffixIconColor: Colors.grey,
+    
+   // disabledBackgroundColor:outlineInputBorder,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
@@ -22,7 +26,10 @@ ThemeData themeData = ThemeData(
       disabledBackgroundColor: Colors.grey,
       textStyle: const TextStyle(fontSize: 18),
     ),
+   // disabledBackgroundColor:Colors.grey,
   ),
+  primarySwatch: Colors.red,
+  canvasColor: Colors.red,
   appBarTheme: const AppBarTheme(
     backgroundColor: Colors.white,
     elevation: 0.0,
