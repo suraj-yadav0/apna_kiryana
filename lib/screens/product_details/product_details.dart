@@ -1,6 +1,11 @@
+import 'package:apna_kiryana/constants/constants.dart';
+import 'package:apna_kiryana/constants/routes.dart';
 import 'package:apna_kiryana/models/product_model.dart';
+import 'package:apna_kiryana/provider/app_provider.dart';
+import 'package:apna_kiryana/screens/cart_screen/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetails extends StatefulWidget {
   final ProductModel singleProduct;
@@ -18,7 +23,9 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Routes.instance.push(widget: const CartScren(), context: context);
+            },
             icon: const Icon(Icons.shopping_cart),
           ),
         ],
@@ -109,7 +116,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+AppProvider appProvider =  Provider.of<AppProvider>(context,listen: false );
+ProductModel productModel = widget.singleProduct.copyWith(qty: qty);
+                      appProvider.addCartProduct(productModel);
+                      showMessage("Added to Cart");
+                    },
                     child: const Text("ADD TO CART"),
                   ),
                   const SizedBox(width: 24,),

@@ -24,7 +24,7 @@ class _CategoryViewState extends State<CategoryView> {
 
   bool isLoading = false;
 
-   @override
+  @override
   void initState() {
     getCategoriesList();
 
@@ -44,7 +44,6 @@ class _CategoryViewState extends State<CategoryView> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,10 +60,16 @@ class _CategoryViewState extends State<CategoryView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const SizedBox(height: kToolbarHeight ,),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: TopTitle(
-                          title: widget.categoryModel.name, subtitle: ""),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const BackButton(),
+                         Text(widget.categoryModel.name,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                        ],
+                      ),
                     ),
                     bestProductsList.isEmpty
                         ? const Center(
