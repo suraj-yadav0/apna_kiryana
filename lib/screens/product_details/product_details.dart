@@ -19,6 +19,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   var qty = 1;
   @override
   Widget build(BuildContext context) {
+     AppProvider appProvider =  Provider.of<AppProvider>(context );
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -54,6 +55,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                         widget.singleProduct.isFavourite =
                             !widget.singleProduct.isFavourite;
                       });
+                      if(widget.singleProduct.isFavourite) {
+                        appProvider.addFavouriteProduct(widget.singleProduct);
+                      }else{
+                        appProvider.removeFavouriteProduct(widget.singleProduct);
+                      }
                     },
                     icon: Icon(widget.singleProduct.isFavourite
                         ? Icons.favorite
