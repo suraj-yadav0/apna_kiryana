@@ -3,6 +3,7 @@ import 'package:apna_kiryana/constants/routes.dart';
 import 'package:apna_kiryana/models/product_model.dart';
 import 'package:apna_kiryana/provider/app_provider.dart';
 import 'package:apna_kiryana/screens/cart_screen/cart_screen.dart';
+import 'package:apna_kiryana/screens/favourite/favourite_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -131,7 +132,9 @@ ProductModel productModel = widget.singleProduct.copyWith(qty: qty);
                     child: const Text("ADD TO CART"),
                   ),
                   const SizedBox(width: 24,),
-                  SizedBox(height: 38,width: 140 ,child:  ElevatedButton(onPressed: (){},
+                  SizedBox(height: 38,width: 140 ,child:  ElevatedButton(onPressed: (){
+                    Routes.instance.push(widget: const FavouriteScreen(), context: context);
+                  },
                   child: const Text("BUY")),)
                 ],
               ),
