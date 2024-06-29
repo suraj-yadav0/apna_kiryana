@@ -4,7 +4,7 @@ import 'package:apna_kiryana/models/category_model.dart';
 
 import 'package:apna_kiryana/models/product_model.dart';
 import 'package:apna_kiryana/screens/product_details/product_details.dart';
-import 'package:apna_kiryana/widgets/TopTitle/top_title.dart';
+
 
 import 'package:flutter/material.dart';
 
